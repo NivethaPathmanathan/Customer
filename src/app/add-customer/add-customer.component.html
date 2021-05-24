@@ -1,0 +1,56 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-6">
+
+      <h2 class="text-center" style="color:darkslateblue">Add customer</h2>
+      <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    
+      <div class="form-group"> 
+        <label for="email"><b>Email address:</b></label>
+        <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email">
+      </div>
+      <div *ngIf="addForm.controls['email'].invalid && (addForm.controls['email'].dirty || addForm.controls['email'].touched || submitted)" class="alert">
+        <div *ngIf="addForm.controls['email'].errors.required" style="color:red;">
+        Please enter the email address
+      </div>
+    </div>
+      
+      <div class="form-group">
+        <label for="name"><b>Name:</b></label>
+        <input formControlName="name" placeholder="Name" name="name" class="form-control" id="name" required>
+      </div>
+      <div *ngIf="addForm.controls['name'].invalid && (addForm.controls['name'].dirty || addForm.controls['name'].touched || submitted)" class="alert">
+        <div *ngIf="addForm.controls['name'].errors.required" style="color:red;">
+        Please enter the name
+      </div>
+    </div>
+      
+      <div class="form-group">
+        <label for="active"><b>Active:</b></label>
+        <input formControlName="active" placeholder="Active" name="active" class="form-control" id="active">
+      </div>
+      <br/>
+      
+    
+        <button type="Submit" class="btn btn-success"><b>Add Customer</b></button>
+    
+        <div class = "row" *ngIf="showMsg">
+          <div class="col-xs-10">
+            <p class="alert alert-success">
+                <strong>Add Customer Successfully!</strong>
+            </p>
+          </div>
+        </div>
+      </form>
+      </div>
+    
+      <p style= "text-align:left; padding-left:300px;color:red">
+        Form Status: {{ addForm.status }}
+      </p>
+    
+  </div>
+</div>
+  <!-- <div class="conatiner" style="padding-left:10px;">  
+  <div class="col-lg-5 table-responsive">  -->
+ 

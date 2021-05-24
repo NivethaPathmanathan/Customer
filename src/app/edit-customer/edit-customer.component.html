@@ -1,0 +1,29 @@
+<div class="col-md-11" style="padding-left:300px;padding-right: 300px;">
+  <h2 class="text-center" style="color:darkslateblue">Edit customer</h2>
+  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="email"><b>Email address:</b></label>
+    <input type="email" formControlName="email" placeholder="Email" name="email" class="form-control" id="email"><br/>
+  </div>
+  
+  <div class="form-group">
+    <label for="name"><b>Name:</b></label>
+    <input formControlName="name" placeholder="Name" name="name" class="form-control" id="name"><br/>
+  </div>
+  
+  <div class="form-group">
+    <label for="active"><b>Active:</b></label>
+    <input formControlName="active" placeholder="Active" name="active" class="form-control" id="active"><br/>
+  </div>
+  <div style="padding-bottom:50px">
+  <button class="btn btn-success"><b>Update</b></button><br/>
+  </div>  
+  <div class = "row" *ngIf="showMsg">
+    <div class="col-xs-12">
+      <p class="alert alert-success">
+          <strong>Customer Details Updated!!</strong>
+      </p>
+    </div>
+  </div>
+</form>
+</div>

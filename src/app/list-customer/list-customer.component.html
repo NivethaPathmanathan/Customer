@@ -1,0 +1,42 @@
+<!-- <div class="conatiner" style="padding-left:10px;">  
+  <div class="col-lg-5 table-responsive">  -->
+<h2 class="text-center" style="color:darkslateblue"> Customer Details</h2>
+<div class="conatiner" style="padding-top:20px;background-color:white">
+  <div class="col-sm-11" style="padding-top:20px;padding-bottom:20px;padding-left:150px;padding-right:150px;">
+    <input class="form-control" type="text" placeholder="Search Here.." [(ngModel)]="searchText"> <br />
+
+
+    <div class="text-right">
+      <button class="btn btn-success" (click)="addcustomer()"> Add customer</button>
+    </div>
+
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <!-- <tr ng-repeat="customer in customers | filter : search"> -->
+        <tr>
+          <th>Id</th>
+          <th>Email</th>
+          <th>Name</th>
+          <th>Active</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers | filter:searchText| paginate: { itemsPerPage: 6, currentPage: p }">
+          <td>{{customer.id}}</td>
+          <td>{{customer.email}}</td>
+          <td>{{customer.name}}</td>
+          <td>{{ customer.active}}</td>
+          <td><button class="btn btn-danger" (click)="deletecustomer(customer)"> Delete</button>
+            <button class="btn btn-success" (click)="editcustomer(customer)" style="margin-left: 20px;"> Edit</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <ul class="pagination">
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </ul>
+  </div>
+</div>
+
+<!-- <app-edit-customer></app-edit-customer>  -->
